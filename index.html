@@ -1,51 +1,85 @@
 <!DOCTYPE html>
-<html lang="TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Fruity Videos - XFRUDEOS.COM</title>
-    <link rel="icon" href="fruit.ico" />
-    <link rel="shortcut icon" href="fruit.ico"/>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1px 1px;
-            text-align: center;
-        }
-        nav {
-            background-color: #444;
-            padding: 1.9px;
-            text-align: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        #video-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-    </style>
+    <title>六和高中器材借還中心</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="#">
+    <link rel="icon" type="image/ico" sizes="16x16" href="fruit.ico">
 </head>
 <body>
     <header>
-        <h1>XFRUIDEOS</h1>
+        <div>
+        六和高中器材借還中心
+        </div>
+        <nav>
+            <a href="equipment.html">器材清單</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+        </nav>
     </header>
-    <nav>
-        <a href="index.html">首頁</a>
-        <a href="calendar.html">關於我們</a>
-        <a href="#">聯繫我們</a>
-    </nav>
-    <div id='calendar'></div>
-    <div id="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/2FMrigQXGoI?si=rRVuivOhjvHqApqe" 
-title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <div class="background">
+        <div class="login-form">
+            <h2>登入
+            </h2>
+            <form>
+                <input type="text" placeholder="帳號"><br>
+                <input type="password" placeholder="密碼"><br>
+                <button type="submit">登入</button>
+            </form>
+        </div>
     </div>
 </body>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+    header {
+        background-color: #d4d05d;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    nav {
+        display: flex;
+    }
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 20px;
+    }
+    .background {
+        background-image: url('123.jpeg');
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-form {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .login-form input {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .login-form button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
 </html>
