@@ -3,13 +3,90 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>器材借還網站</title>
+<title>六和高中器材借還中心</title>
+</head>
+<body>
+<h1>器材列表</h1>
+<div class="equipment-container">
+    <div class="equipment-column">
+        <ul class="equipment-list">
+            <li class="equipment-item">
+                羽球拍
+                <span class="borrow-info"></span>
+                <button class="borrow-button" onclick="toggleBorrow(this)">借用</button>
+            </li>
+            <li class="equipment-item">
+                桌球
+                <span class="borrow-info"></span>
+                <button class="borrow-button" onclick="toggleBorrow(this)">借用</button>
+            </li>
+            <li class="equipment-item">
+                籃球
+                <span class="borrow-info"></span>
+                <button class="borrow-button" onclick="toggleBorrow(this)">借用</button>
+            </li>
+            <!-- add here -->
+        </ul>
+    </div>
+    <div class="equipment-column">
+        <ul class="equipment-list">
+            <li class="equipment-item">
+                器材4
+                <span class="borrow-info"></span>
+                <button class="borrow-button" onclick="toggleBorrow(this)">借用</button>
+            </li>
+            <li class="equipment-item">
+                器材5
+                <span class="borrow-info"></span>
+                <button class="borrow-button" onclick="toggleBorrow(this)">借用</button>
+            </li>
+            <li class="equipment-item">
+                器材6
+                <span class="borrow-info"></span>
+                <button class="borrow-button" onclick="toggleBorrow(this)">借用</button>
+            </li>
+            <!-- add here too -->
+        </ul>
+    </div>
+</div>
+<script>
+    // 获取并存储用户名到会话
+    const usernameInput = document.getElementById('username');
+    usernameInput.addEventListener('input', function() {
+        sessionStorage.setItem('currentUser', this.value);
+    });
+    
+    function toggleBorrow(button) {
+        const equipmentItem = button.parentElement;
+        const borrowInfo = equipmentItem.querySelector('.borrow-info');
+        const currentTime = new Date();
+        const month = currentTime.getMonth() + 1;
+        const date = currentTime.getDate();
+        const hour = currentTime.getHours();
+        const minute = currentTime.getMinutes();
+        const currentUser = sessionStorage.getItem('currentUser');
+        if (button.textContent === '借用') {
+            equipmentItem.classList.add('borrowed');
+            button.textContent = '歸還';
+            borrowInfo.textContent = ` 借用時間: ${month}/${date} ${hour}:${minute} 借用人: ${currentUser}`;
+        } else {
+            equipmentItem.classList.remove('borrowed');
+            button.textContent = '借用';
+            borrowInfo.textContent = '';
+        }
+    }
+</script>
+</body>
 <style>
     body {
         margin: 0;
         padding: 0;
         font-family: Arial, sans-serif;
     }
+    header{
+        
+    }
+    
     .equipment-container {
         display: flex;
         justify-content: space-around;
@@ -25,12 +102,12 @@
     .equipment-item {
         background-color: #f2f2f2;
         margin-bottom: 10px;
-        padding: 10px;
+        padding: 12px;
         border-radius: 5px;
         position: relative;
     }
     .equipment-item.borrowed {
-        background-color: #ffcccc; /* 借出時的顏色 */
+        background-color: #ffcccc;
     }
     .borrow-button {
         position: absolute;
@@ -39,61 +116,17 @@
         background-color: #333;
         color: #fff;
         border: none;
-        padding: 5px 10px;
-        border-radius: 3px;
+        padding: 7px 10px;
+        border-radius: 5px;
         cursor: pointer;
     }
-</style>
-</head>
-<body>
-<h1>器材列表</h1>
-<div class="equipment-container">
-    <div class="equipment-column">
-        <ul class="equipment-list">
-            <li class="equipment-item">
-                羽球拍
-                <button class="borrow-button" onclick="toggleBorrow(this)">借用</button>
-            </li>
-            <li class="equipment-item">
-                桌球
-                <button class="borrow-button" onclick="toggleBorrow(this)">借用</button>
-            </li>
-            <li class="equipment-item">
-                籃球
-                <button class="borrow-button" onclick="toggleBorrow(this)">借用</button>
-            </li>
-            <!-- 添加更多器材 -->
-        </ul>
-    </div>
-    <div class="equipment-column">
-        <ul class="equipment-list">
-            <li class="equipment-item">
-                器材4
-                <button class="borrow-button" onclick="toggleBorrow(this)">借用</button>
-            </li>
-            <li class="equipment-item">
-                器材5
-                <button class="borrow-button" onclick="toggleBorrow(this)">借用</button>
-            </li>
-            <li class="equipment-item">
-                器材6
-                <button class="borrow-button" onclick="toggleBorrow(this)">借用</button>
-            </li>
-            <!-- 添加更多器材 -->
-        </ul>
-    </div>
-</div>
-<script>
-    function toggleBorrow(button) {
-        const equipmentItem = button.parentElement;
-        if (button.textContent === '借用') {
-            equipmentItem.classList.add('borrowed');
-            button.textContent = '歸還';
-        } else {
-            equipmentItem.classList.remove('borrowed');
-            button.textContent = '借用';
-        }
+    h1 {
+        background-color: #cdc82c;
+        color: #ffffff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
-</script>
-</body>
+</style>
 </html>

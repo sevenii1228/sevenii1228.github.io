@@ -10,24 +10,42 @@
 <body>
     <header>
         <div>
-        六和高中器材借還中心
+            六和高中器材借還中心
         </div>
         <nav>
-            <a href="equipment.html">器材清單</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
+            <a href="#">使用方法</a>
+            <a href="#">班級代號</a>
+            <a href="#">關於</a>
         </nav>
     </header>
     <div class="background">
         <div class="login-form">
-            <h2>登入
-            </h2>
-            <form>
-                <input type="text" placeholder="帳號"><br>
-                <input type="password" placeholder="密碼"><br>
+            <h2>登入</h2>
+            <form id="loginForm">
+                <p id="error" style="color: red; display: none;">錯誤帳號或密碼</p>
+                <input type="text" id="username" placeholder="帳號"><br>
+                <input type="password" id="password" placeholder="密碼"><br>
                 <button type="submit">登入</button>
             </form>
+            <script>
+                document.getElementById("loginForm").addEventListener("submit", function(event) {
+                    event.preventDefault();
+                    var username = document.getElementById("username").value;
+                    var password = document.getElementById("password").value;
+                    var accounts = {
+                        "Nana": "123",
+                        "109303": "123456"
+                        // Add more here
+                    };
+
+                    if (accounts.hasOwnProperty(username) && accounts[username] === password) {
+                        sessionStorage.setItem('currentUser', username);
+                        window.location.href = "equipment.html";
+                    } else {
+                        document.getElementById("error").style.display = "block";
+                    }
+                });
+            </script>
         </div>
     </div>
 </body>
