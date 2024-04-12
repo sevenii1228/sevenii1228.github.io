@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="EN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +39,7 @@
                     };
 
                     if (accounts.hasOwnProperty(username) && accounts[username] === password) {
-                        sessionStorage.setItem('currentUser', username);
+                        localStorage.setItem('currentUser', username);
                         window.location.href = "equipment.html";
                     } else {
                         document.getElementById("error").style.display = "block";

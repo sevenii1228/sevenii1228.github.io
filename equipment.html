@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="EN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>六和高中器材借還中心</title>
 </head>
-<body>
+<body onload="storage()">
 <h1>器材列表</h1>
 <div class="equipment-container">
     <div class="equipment-column">
@@ -50,12 +50,28 @@
     </div>
 </div>
 <script>
-    // 获取并存储用户名到会话
-    const usernameInput = document.getElementById('username');
-    usernameInput.addEventListener('input', function() {
-        sessionStorage.setItem('currentUser', this.value);
-    });
-    
+    function storage() {
+        const borrowedInfo = localStorage.getItem(equipmentItem.textContent.trim());
+        console.log(borrowedInfo);
+
+        }
+</script>
+<script>
+    window.onload = function() {
+        const equipmentItems = document.querySelectorAll('.equipment-item');
+        equipmentItems.forEach(function(item) {
+            const borrowInfo = item.querySelector('.borrow-info');
+            const borrowStatus = localStorage.getItem(item.textContent.trim());
+            if (borrowStatus) {
+                const [status, info] = borrowStatus.split('|');
+                if (status === 'borrowed') {
+                    const [date, time, user] = info.split(',');
+                    borrowInfo.textContent = ` 借用時間: ${date} ${time} 借用人: ${user}`;
+                }
+            }
+        });
+    };
+
     function toggleBorrow(button) {
         const equipmentItem = button.parentElement;
         const borrowInfo = equipmentItem.querySelector('.borrow-info');
@@ -64,15 +80,20 @@
         const date = currentTime.getDate();
         const hour = currentTime.getHours();
         const minute = currentTime.getMinutes();
-        const currentUser = sessionStorage.getItem('currentUser');
+        const currentUser = localStorage.getItem('currentUser');
         if (button.textContent === '借用') {
             equipmentItem.classList.add('borrowed');
             button.textContent = '歸還';
-            borrowInfo.textContent = ` 借用時間: ${month}/${date} ${hour}:${minute} 借用人: ${currentUser}`;
+            const borrowTime = `${month}/${date} ${hour}:${minute}`;
+            borrowInfo.textContent = ` 借用時間: ${borrowTime} 借用人: ${currentUser}`;
+            localStorage.setItem(equipmentItem.textContent.trim(), `borrowed|${borrowTime},${currentUser}`);
+            const borrowedInfo = localStorage.getItem(equipmentItem.textContent.trim());
+            console.log(borrowedInfo);
         } else {
             equipmentItem.classList.remove('borrowed');
             button.textContent = '借用';
             borrowInfo.textContent = '';
+            localStorage.removeItem(equipmentItem.textContent.trim());
         }
     }
 </script>
