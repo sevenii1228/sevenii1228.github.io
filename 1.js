@@ -56,7 +56,7 @@ function storage() {
     
         if (accounts.hasOwnProperty(username) && accounts[username] === password) {
             localStorage.setItem('currentUser', username);
-            window.location.href = "equipment_1.html";
+            window.location.href = "equipment.html";
         } else {
             document.getElementById("error").style.display = "block";
         }
