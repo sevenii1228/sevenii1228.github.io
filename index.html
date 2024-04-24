@@ -6,6 +6,7 @@
     <title>六和高中器材借還中心</title>
     <link rel="apple-touch-icon" sizes="180x180" href="#">
     <link rel="icon" type="image/ico" sizes="16x16" href="fruit.ico">
+    <link rel="stylesheet" href="1.css">
 </head>
 <body>
     <header>
@@ -13,9 +14,8 @@
             六和高中器材借還中心
         </div>
         <nav>
-            <a href="#">使用方法</a>
-            <a href="#">班級代號</a>
-            <a href="#">關於</a>
+            <a href="rule.html">借用辦法</a>
+            <a href="about.html">關於</a>
         </nav>
     </header>
     <div class="background">
@@ -27,77 +27,8 @@
                 <input type="password" id="password" placeholder="密碼"><br>
                 <button type="submit">登入</button>
             </form>
-            <script>
-                document.getElementById("loginForm").addEventListener("submit", function(event) {
-                    event.preventDefault();
-                    var username = document.getElementById("username").value;
-                    var password = document.getElementById("password").value;
-                    var accounts = {
-                        "Nana": "123",
-                        "109303": "123456"
-                        // Add more here
-                    };
-
-                    if (accounts.hasOwnProperty(username) && accounts[username] === password) {
-                        localStorage.setItem('currentUser', username);
-                        window.location.href = "equipment.html";
-                    } else {
-                        document.getElementById("error").style.display = "block";
-                    }
-                });
-            </script>
         </div>
     </div>
 </body>
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-    }
-    header {
-        background-color: #d4d05d;
-        color: #fff;
-        padding: 10px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    nav {
-        display: flex;
-    }
-    nav a {
-        color: #fff;
-        text-decoration: none;
-        margin-left: 20px;
-    }
-    .background {
-        background-image: url('123.jpeg');
-        background-size: cover;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .login-form {
-        background-color: rgba(255, 255, 255, 0.8);
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-    }
-    .login-form input {
-        width: 100%;
-        margin-bottom: 10px;
-        padding: 10px;
-        box-sizing: border-box;
-    }
-    .login-form button {
-        background-color: #333;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-</style>
+<script src="1.js"></script>
 </html>

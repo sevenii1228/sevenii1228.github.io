@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="EN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>六和高中器材借還中心</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+<script src="1.js"></script>
+<body onload="storage()">
+<h1>器材列表</h1>
+<div class="equipment-container">
+    <div class="equipment-column">
+        <ul class="equipment-list">
+            <li class="equipment-item">
+                羽球拍
+                <span class="borrow-info"></span>
+                <button class="borrow-button" onclick="toggleBorrow(this)">借用</button>
+            </li>
+            <li class="equipment-item">
+                桌球
+                <span class="borrow-info"></span>
+                <button class="borrow-button" onclick="toggleBorrow(this)">借用</button>
+            </li>
+            <li class="equipment-item">
+                籃球
+                <span class="borrow-info"></span>
+                <button class="borrow-button" onclick="toggleBorrow(this)">借用</button>
+            </li>
+            <!-- add here -->
+        </ul>
+    </div>
+    <div class="equipment-column">
+        <ul class="equipment-list">
+            <li class="equipment-item">
+                排球
+                <span class="borrow-info"></span>
+                <button class="borrow-button" onclick="toggleBorrow(this)">借用</button>
+            </li>
+            <li class="equipment-item">
+                棒球
+                <span class="borrow-info"></span>
+                <button class="borrow-button" onclick="toggleBorrow(this)">借用</button>
+            </li>
+            <li class="equipment-item">
+                足球
+                <span class="borrow-info"></span>
+                <button class="borrow-button" onclick="toggleBorrow(this)">借用</button>
+            </li>
+            <!-- add here too -->
+        </ul>
+    </div>
+</div>
+</body>
+</html>
